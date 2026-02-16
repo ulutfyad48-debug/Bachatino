@@ -455,10 +455,30 @@
 
     footer {
       text-align: center;
-      padding: 2.5rem 1rem;
+      padding: 2rem 1rem 1.2rem;
       color: #7f99b0;
       border-top: 1px solid #e3eef9;
       background: #f8fcff;
+    }
+    .footer-contact {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .footer-contact a {
+      color: #1f6d51;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: 0.2s;
+    }
+    .footer-contact a:hover {
+      color: #0b4635;
+      transform: scale(1.05);
     }
     .no-products {
       grid-column: 1/-1;
@@ -510,7 +530,7 @@
       <label>Delivery method *</label>
       <select id="deliverySelect">
         <option value="" disabled selected>— select delivery option —</option>
-        <option value="pickup">📦 Pickup (free) – Tarnab Farm</option>
+        <option value="pickup">📦 Pickup (free) – Tarnab Farm, Peshawar, Mohalla Yakub Khan (near Abubakar Masjid)</option>
         <option value="peshawar">🚚 Peshawar city – Rs 99</option>
         <option value="kpk">🛵 KPK (other cities) – Rs 100</option>
         <option value="other">🚛 Other provinces – Rs 150</option>
@@ -537,6 +557,10 @@
 
 <footer>
   <p>© 2024 Bachatino · fresh & honest prices</p>
+  <div class="footer-contact">
+    <a href="tel:+923125540048"><i class="fas fa-phone-alt"></i> +92 312 5540048</a>
+    <a href="mailto:ullahyad199@gmail.com"><i class="fas fa-envelope"></i> ullahyad199@gmail.com</a>
+  </div>
 </footer>
 
 <script>
@@ -728,7 +752,8 @@
       let message = `🛒 *Bachatino order*\n👤 *Name:* ${name}\n📞 *Phone:* ${phone}\n\n📦 *Items:*\n${itemsList}\n-------------------\nSubtotal: Rs ${calc.subtotal}\nDelivery: ${deliveryText}\n💰 *TOTAL: Rs ${calc.total}*\n`;
 
       if (delivery === 'pickup') {
-        message += `📍 *Pickup:* Tarnab Farm (main branch)\n`;
+        // Updated pickup location with full address
+        message += `📍 *Pickup:* Tarnab Farm, Peshawar, Mohalla Yakub Khan (near Abubakar Masjid)\n`;
       } else {
         message += `🏠 *Address:* ${address}\n`;
       }
