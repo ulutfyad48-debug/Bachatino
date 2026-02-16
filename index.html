@@ -82,9 +82,9 @@
     }
     .qty-control button:active { transform: scale(0.95); }
 
-    /* --- New Cart Button Design & Position --- */
+    /* --- Cart Button --- */
     .cart-float {
-      position: fixed; bottom: 80px; right: 25px; /* Position moved up */
+      position: fixed; bottom: 80px; right: 25px;
       background: linear-gradient(135deg, #0b3b2c, #1e5e4d);
       color: white; width: 65px; height: 65px;
       border-radius: 50%; display: flex; align-items: center; justify-content: center;
@@ -107,7 +107,7 @@
       display: none; justify-content: center; align-items: center; z-index: 1000;
     }
     .popup-box {
-      background: white; width: 90%; max-width: 450px;
+      background: white; width: 90%; max-width: 450px; max-height: 90vh; overflow-y: auto;
       padding: 30px; border-radius: 25px; text-align: center;
       position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     }
@@ -116,11 +116,12 @@
 
     .input-group { margin: 15px 0; text-align: left; }
     .input-group label { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; display: block; color: #555; }
-    .input-group input, .input-group select {
+    .input-group input, .input-group select, .input-group textarea {
       width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 12px;
       font-size: 1rem; outline: none; background: #f9f9f9; transition: 0.3s;
     }
-    .input-group input:focus, .input-group select:focus {
+    .input-group textarea { resize: vertical; min-height: 80px; }
+    .input-group input:focus, .input-group select:focus, .input-group textarea:focus {
       border-color: #0b3b2c; background: white;
     }
 
@@ -174,14 +175,20 @@
       <label>Phone / WhatsApp</label>
       <input type="tel" id="phone" placeholder="Enter mobile number">
     </div>
+
     <div class="input-group">
-      <label>Delivery Location</label>
+      <label>Delivery Area (Calculates Charges)</label>
       <select id="delivery">
         <option value="pickup">Pickup (Free) — 📍 Tarnab Farm</option>
         <option value="peshawar">Peshawar — Rs 99</option>
         <option value="kpk">KPK (Cities) — Rs 100</option>
         <option value="other">Other Province — Rs 150</option>
       </select>
+    </div>
+
+    <div class="input-group">
+      <label>Full Address (House #, Street, Colony)</label>
+      <textarea id="fullAddress" placeholder="e.g. House 12, Street 5, Gulbahar..."></textarea>
     </div>
 
     <div class="total-row">
@@ -203,15 +210,13 @@
 
 <script>
   /* ======================================================
-     SETTINGS (Edit Here)
+     SETTINGS
   ====================================================== */
   const WHATSAPP_NUMBER = "923125540048"; 
   const MERCHANT_EMAIL = "ullahyad199@gmail.com"; 
-  const PICKUP_ADDRESS = "Tarnab Farm, Peshawar, Mohalla Yakub Khan";
 
   /* ======================================================
      PRODUCT LIST
-     Set 'inStock: false' to disable an item.
   ====================================================== */
   const PRODUCTS = [
     {
@@ -236,14 +241,14 @@
       description: "High quality cooking oil (1 Liter pouch)",
       price: 500,
       image: "https://via.placeholder.com/300?text=Cooking+Oil",
-      inStock: false // Example: Out of stock
+      inStock: false // Out of stock
     },
     {
       id: 4,
-      title: "Another Product",
-      description: "Just another item to show the scroll and button position.",
+      title: "Washing Powder",
+      description: "Best for stain removal (500g)",
       price: 150,
-      image: "https://via.placeholder.com/300?text=More+Items",
+      image: "https://via.placeholder.com/300?text=Surf",
       inStock: true
     }
   ];
@@ -308,8 +313,10 @@
   window.sendOrder = (method) => {
     const name = document.getElementById("name").value;
     const phone = document.getElementById("phone").value;
+    const fullAddress = document.getElementById("fullAddress").value; // Get Manual Address
     
     if(!name || !phone) return alert("Please enter your Name and Phone Number.");
+    if(!fullAddress) return alert("Please enter your Full Address for delivery.");
 
     let cartItems = PRODUCTS.filter(p => cart[p.id] > 0);
     if(cartItems.length === 0) return alert("Your cart is empty.");
@@ -317,13 +324,15 @@
     // Create Order Summary
     let itemsList = cartItems.map(p => `• ${p.title} x ${cart[p.id]} (Rs ${p.price * cart[p.id]})`).join('\n');
     let calc = calculateTotal();
-    let deliveryType = document.getElementById("delivery").options[document.getElementById("delivery").selectedIndex].text;
+    let deliveryArea = document.getElementById("delivery").options[document.getElementById("delivery").selectedIndex].text;
     
+    // Message Construction
     let message = `🛒 *New Order - Bachatino*\n\n` +
-                  `👤 *Customer:* ${name}\n` +
+                  `👤 *Name:* ${name}\n` +
                   `📞 *Phone:* ${phone}\n\n` +
+                  `📍 *Delivery Area:* ${deliveryArea}\n` +
+                  `🏠 *Full Address:* ${fullAddress}\n\n` +
                   `📦 *Order Details:*\n${itemsList}\n\n` +
-                  `🚚 *Delivery:* ${deliveryType}\n` +
                   `💰 *Total Bill:* Rs ${calc.total}`;
 
     // Handle Sending
@@ -332,7 +341,6 @@
     } 
     else if(method === 'email') {
       let subject = `New Order from ${name} - Bachatino`;
-      // Convert newlines to %0D%0A for email body
       let body = message.replace(/\n/g, "%0D%0A"); 
       window.location.href = `mailto:${MERCHANT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${body}`;
     }
