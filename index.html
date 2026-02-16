@@ -3,321 +3,344 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Bachatino – Online Shopping in Pakistan</title>
-  <meta name="description" content="Bachatino offers affordable online shopping in Pakistan. Best prices on household items, electronics, grocery, juices and daily use products.">
-  <meta name="keywords" content="Bachatino, online shopping Pakistan, cheap products Pakistan, discount store Pakistan, grocery online Pakistan, juices online Pakistan">
-  <meta name="author" content="Bachatino">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
-
-  <meta property="og:title" content="Bachatino – Online Shopping Pakistan">
-  <meta property="og:description" content="Affordable products at best prices in Pakistan. Grocery, electronics, juices and more.">
-  <meta property="og:url" content="https://ulutfyad48-debug.github.io/Bachatino/">
-  <meta property="og:type" content="website">
-
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Bachatino">
-  <meta name="twitter:description" content="Best online discount store in Pakistan.">
-
-  <link rel="canonical" href="https://ulutfyad48-debug.github.io/Bachatino/">
-
+  <title>Bachatino – Online Shopping</title>
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    }
-
-    body {
-      background: #f4f6fa;
-      color: #1e2b3c;
-      line-height: 1.5;
-    }
+    /* --- General Styling --- */
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background: #f4f6fa; color: #1e2b3c; }
 
     header {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.95);
       backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       padding: 1rem 2rem;
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
-      border-bottom: 1px solid rgba(0,0,0,0.05);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 1rem;
+      position: sticky; top: 0; z-index: 100;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;
     }
 
     .logo {
-      font-weight: 700;
-      font-size: 1.6rem;
-      letter-spacing: -0.02em;
-      background: linear-gradient(145deg, #0b3b2c, #1b6b4f);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      font-weight: 800; font-size: 1.5rem; color: #0b3b2c;
+      display: flex; align-items: center; gap: 8px;
+      letter-spacing: -0.5px;
     }
 
     .search-wrapper {
-      flex: 1;
-      max-width: 420px;
-      position: relative;
+      flex: 1; max-width: 400px; position: relative;
     }
     .search-wrapper i {
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
-      color: #7c8896;
+      position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #aaa;
     }
     .search-box {
-      width: 100%;
-      padding: 0.9rem 1rem 0.9rem 3rem;
-      border: 1px solid #e2e8f0;
-      border-radius: 60px;
-      font-size: 1rem;
+      width: 100%; padding: 12px 12px 12px 45px; border: 1px solid #e0e0e0;
+      border-radius: 50px; outline: none; font-size: 0.95rem; transition: 0.3s;
     }
+    .search-box:focus { border-color: #0b3b2c; box-shadow: 0 0 0 4px rgba(11, 59, 44, 0.1); }
 
     .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.8rem;
-      padding: 2rem;
-      max-width: 1400px;
-      margin: 0 auto;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px; padding: 2rem; max-width: 1400px; margin: 0 auto;
     }
 
     .card {
-      background: white;
-      border-radius: 28px;
-      padding: 1.2rem;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
-      display: flex;
-      flex-direction: column;
-      transition: 0.3s;
+      background: white; border-radius: 20px; padding: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s;
+      position: relative; overflow: hidden; display: flex; flex-direction: column;
+      border: 1px solid rgba(0,0,0,0.04);
     }
-    .card:hover { transform: translateY(-6px); }
+    .card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
 
     .card img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      border-radius: 20px;
+      width: 100%; height: 200px; object-fit: cover; border-radius: 15px;
       background: #f0f2f5;
     }
 
-    .price {
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: #0b3b2c;
-      margin: 0.5rem 0;
+    /* Out of Stock Styling */
+    .card.out-of-stock { opacity: 0.6; pointer-events: none; }
+    .card.out-of-stock img { filter: grayscale(100%); }
+    .stock-badge {
+      position: absolute; top: 25px; right: 25px;
+      background: #e74c3c; color: white; padding: 5px 12px;
+      border-radius: 20px; font-size: 0.8rem; font-weight: bold;
+      z-index: 10; display: none; box-shadow: 0 4px 10px rgba(231, 76, 60, 0.3);
+    }
+    .card.out-of-stock .stock-badge { display: block; }
+
+    .title { font-weight: 700; margin-top: 15px; font-size: 1.1rem; }
+    .price { color: #0b3b2c; font-weight: 800; font-size: 1.25rem; margin: 8px 0; }
+
+    .qty-control {
+      display: flex; justify-content: space-between; align-items: center;
+      background: #f1f5f9; border-radius: 30px; padding: 5px; margin-top: auto;
+    }
+    .qty-control button {
+      width: 38px; height: 38px; border-radius: 50%; border: none;
+      background: white; cursor: pointer; font-weight: bold; font-size: 1.2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1); transition: 0.2s;
+    }
+    .qty-control button:active { transform: scale(0.95); }
+
+    /* --- New Cart Button Design & Position --- */
+    .cart-float {
+      position: fixed; bottom: 80px; right: 25px; /* Position moved up */
+      background: linear-gradient(135deg, #0b3b2c, #1e5e4d);
+      color: white; width: 65px; height: 65px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; cursor: pointer; 
+      box-shadow: 0 10px 30px rgba(11, 59, 44, 0.4);
+      z-index: 999; transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .cart-float:hover { transform: scale(1.05); box-shadow: 0 15px 35px rgba(11, 59, 44, 0.5); }
+    .cart-count-badge {
+      position: absolute; top: -5px; right: -5px; background: #e74c3c; 
+      color: white; width: 26px; height: 26px; font-size: 13px; font-weight: bold;
+      border-radius: 50%; display: none; align-items: center; justify-content: center;
+      border: 3px solid white; box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
 
-    .qty {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: #f1f5f9;
-      border-radius: 40px;
-      padding: 0.25rem;
+    /* Popup */
+    .popup-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
+      display: none; justify-content: center; align-items: center; z-index: 1000;
     }
-    .qty button {
-      width: 40px;
-      height: 40px;
-      border-radius: 40px;
-      border: none;
-      background: white;
-      cursor: pointer;
+    .popup-box {
+      background: white; width: 90%; max-width: 450px;
+      padding: 30px; border-radius: 25px; text-align: center;
+      position: relative; box-shadow: 0 20px 50px rgba(0,0,0,0.2);
     }
+    
+    .popup-box h3 { margin-bottom: 20px; color: #0b3b2c; font-weight: 800; }
 
-    .cart-btn {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      background: #0b3b2c;
-      color: white;
-      width: 68px;
-      height: 68px;
-      border-radius: 68px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      cursor: pointer;
-      z-index: 99;
+    .input-group { margin: 15px 0; text-align: left; }
+    .input-group label { font-size: 0.9rem; font-weight: 600; margin-bottom: 8px; display: block; color: #555; }
+    .input-group input, .input-group select {
+      width: 100%; padding: 14px; border: 1px solid #ddd; border-radius: 12px;
+      font-size: 1rem; outline: none; background: #f9f9f9; transition: 0.3s;
     }
-
-    .popup {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(10, 25, 20, 0.5);
-      backdrop-filter: blur(6px);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      z-index: 200;
-    }
-    .popup-content {
-      background: white;
-      padding: 2rem;
-      width: 90%;
-      max-width: 460px;
-      border-radius: 36px;
+    .input-group input:focus, .input-group select:focus {
+      border-color: #0b3b2c; background: white;
     }
 
     .total-row {
-      background: #edf3ef;
-      border-radius: 60px;
-      padding: 1rem;
-      margin: 1rem 0;
-      font-weight: 700;
-      display: flex;
-      justify-content: space-between;
+      background: #f0fdf4; padding: 18px; border-radius: 15px; 
+      display: flex; justify-content: space-between; font-weight: bold;
+      color: #0b3b2c; border: 1px solid #dcfce7; margin-bottom: 25px; font-size: 1.1rem;
     }
 
-    .whatsapp-btn {
-      width: 100%;
-      padding: 1.2rem;
-      background: #25D366;
-      color: white;
-      border: none;
-      border-radius: 60px;
-      font-weight: 600;
-      cursor: pointer;
+    .btn {
+      width: 100%; padding: 16px; border: none; border-radius: 12px;
+      font-size: 1.05rem; font-weight: 600; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; gap: 10px; color: white;
+      margin-bottom: 12px; transition: 0.2s;
     }
+    .btn:hover { opacity: 0.9; transform: translateY(-2px); }
+    .btn-wa { background: linear-gradient(135deg, #25D366, #1da851); box-shadow: 0 8px 20px rgba(37, 211, 102, 0.3); }
+    .btn-email { background: linear-gradient(135deg, #3b82f6, #2563eb); box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3); }
+    .btn-cancel { background: transparent; color: #777; margin-top: 5px; }
+    .btn-cancel:hover { background: #f5f5f5; transform: none; }
 
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: #6d828e;
-    }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <i class="fas fa-shopping-basket"></i> Bachatino
-  </div>
+  <div class="logo"><i class="fas fa-shopping-basket"></i> Bachatino</div>
   <div class="search-wrapper">
     <i class="fas fa-search"></i>
-    <input type="text" id="search" class="search-box" placeholder="تلاش کریں...">
+    <input type="text" class="search-box" placeholder="Search products...">
   </div>
 </header>
 
-<div class="products" id="productContainer"></div>
+<div class="products" id="productContainer">
+  </div>
 
-<div class="cart-btn" onclick="openCart()">
+<div class="cart-float" onclick="openCart()">
   <i class="fas fa-shopping-bag"></i>
+  <span id="cartCount" class="cart-count-badge">0</span>
 </div>
 
-<div class="popup" id="popup">
-  <div class="popup-content">
-    <h3>آرڈر مکمل کریں</h3>
-    <input type="text" id="name" placeholder="آپ کا نام" style="width:100%; padding:10px; margin:10px 0; border-radius:20px; border:1px solid #ddd;">
-    <input type="text" id="phone" placeholder="واٹس ایپ نمبر" style="width:100%; padding:10px; margin:10px 0; border-radius:20px; border:1px solid #ddd;">
+<div class="popup-overlay" id="popup">
+  <div class="popup-box">
+    <h3>Complete Your Order</h3>
     
-    <select id="delivery" style="width:100%; padding:10px; margin:10px 0; border-radius:20px; border:1px solid #ddd;">
-      <option value="pickup">Pickup (Free) — 📍 Tarnab farm</option>
-      <option value="peshawar">Peshawar — Rs 99</option>
-      <option value="kpk">KPK (Cities) — Rs 100</option>
-      <option value="other">Other Province — Rs 150</option>
-    </select>
+    <div class="input-group">
+      <label>Your Name</label>
+      <input type="text" id="name" placeholder="Enter your full name">
+    </div>
+    <div class="input-group">
+      <label>Phone / WhatsApp</label>
+      <input type="tel" id="phone" placeholder="Enter mobile number">
+    </div>
+    <div class="input-group">
+      <label>Delivery Location</label>
+      <select id="delivery">
+        <option value="pickup">Pickup (Free) — 📍 Tarnab Farm</option>
+        <option value="peshawar">Peshawar — Rs 99</option>
+        <option value="kpk">KPK (Cities) — Rs 100</option>
+        <option value="other">Other Province — Rs 150</option>
+      </select>
+    </div>
 
     <div class="total-row">
-      <span>کل رقم</span>
+      <span>Total Amount:</span>
       <span id="totalAmount">Rs 0</span>
     </div>
 
-    <button class="whatsapp-btn" onclick="sendOrder()">
-      <i class="fab fa-whatsapp"></i> واٹس ایپ پر بھیجیں
+    <button class="btn btn-wa" onclick="sendOrder('whatsapp')">
+      <i class="fab fa-whatsapp"></i> Order via WhatsApp
     </button>
-    <button onclick="closeCart()" style="width:100%; margin-top:10px; background:none; border:none; color:gray; cursor:pointer;">کینسل کریں</button>
+
+    <button class="btn btn-email" onclick="sendOrder('email')">
+      <i class="fas fa-envelope"></i> Order via Email
+    </button>
+
+    <button class="btn btn-cancel" onclick="closeCart()">Cancel</button>
   </div>
 </div>
 
-<footer>
-  <span>🌿 Bachatino • بہترین قیمت اور معیاری اشیاء</span>
-</footer>
-
 <script>
+  /* ======================================================
+     SETTINGS (Edit Here)
+  ====================================================== */
   const WHATSAPP_NUMBER = "923125540048"; 
-  const DELIVERY_CHARGES = { pickup: 0, peshawar: 99, kpk: 100, other: 150 };
-  const PICKUP_ADDRESS = "Tarnab farm Peshawar mohalla yakub khan";
+  const MERCHANT_EMAIL = "ullahyad199@gmail.com"; 
+  const PICKUP_ADDRESS = "Tarnab Farm, Peshawar, Mohalla Yakub Khan";
 
-  // مصنوعات کی لسٹ (یہاں آپ اپنی چیزیں بدل سکتے ہیں)
-   const PRODUCTS = [
+  /* ======================================================
+     PRODUCT LIST
+     Set 'inStock: false' to disable an item.
+  ====================================================== */
+  const PRODUCTS = [
     {
       id: 1,
-      title: "testing",
-      description: "یہ بھیجنے کے لیے نہیں ہے یہ ہم ویب سائٹ کو چیک کر رہے ہیں ٹیسٹ کر رہے ہیں ٹھیک",
-      price: 0,
-      image: "https://lh3.googleusercontent.com/d/1lS9uwVLmnD38I_-CvRCc2WEczMgjSKQ3"
+      title: "Apple Juice",
+      description: "Original pure apple juice box (1 Liter)",
+      price: 250,
+      image: "https://via.placeholder.com/300?text=Apple+Juice", 
+      inStock: true
     },
+    {
+      id: 2,
+      title: "Basmati Rice",
+      description: "Premium quality long grain rice (1kg)",
+      price: 350,
+      image: "https://via.placeholder.com/300?text=Rice",
+      inStock: true
+    },
+    {
+      id: 3,
+      title: "Cooking Oil",
+      description: "High quality cooking oil (1 Liter pouch)",
+      price: 500,
+      image: "https://via.placeholder.com/300?text=Cooking+Oil",
+      inStock: false // Example: Out of stock
+    },
+    {
+      id: 4,
+      title: "Another Product",
+      description: "Just another item to show the scroll and button position.",
+      price: 150,
+      image: "https://via.placeholder.com/300?text=More+Items",
+      inStock: true
+    }
   ];
+
+  /* --- Logic Code --- */
+  const DELIVERY_CHARGES = { pickup: 0, peshawar: 99, kpk: 100, other: 150 };
   let cart = {}; 
 
   function displayProducts() {
     const container = document.getElementById("productContainer");
-    container.innerHTML = PRODUCTS.map(p => `
-      <div class="card">
+    container.innerHTML = PRODUCTS.map(p => {
+      const isStock = p.inStock;
+      const stockClass = isStock ? "" : "out-of-stock";
+      
+      return `
+      <div class="card ${stockClass}">
+        <span class="stock-badge">OUT OF STOCK</span>
         <img src="${p.image}" alt="${p.title}">
-        <h4>${p.title}</h4>
-        <p>${p.description}</p>
+        <h4 class="title">${p.title}</h4>
+        <p style="font-size:0.9rem; color:#666; flex-grow:1;">${p.description}</p>
         <div class="price">Rs ${p.price}</div>
-        <div class="qty">
+        
+        <div class="qty-control">
           <button onclick="changeQty(${p.id}, -1)">-</button>
-          <span id="qty-${p.id}">${cart[p.id] || 0}</span>
+          <span id="qty-${p.id}" style="font-weight:bold;">${cart[p.id] || 0}</span>
           <button onclick="changeQty(${p.id}, 1)">+</button>
         </div>
       </div>
-    `).join('');
+    `}).join('');
   }
 
   window.changeQty = (id, delta) => {
     cart[id] = Math.max(0, (cart[id] || 0) + delta);
     document.getElementById(`qty-${id}`).innerText = cart[id];
-    calculateTotal();
+    updateCartUI();
   };
+
+  function updateCartUI() {
+    let count = Object.values(cart).reduce((a, b) => a + b, 0);
+    const badge = document.getElementById("cartCount");
+    badge.innerText = count;
+    badge.style.display = count > 0 ? "flex" : "none";
+    calculateTotal();
+  }
 
   function calculateTotal() {
     let subtotal = PRODUCTS.reduce((acc, p) => acc + (p.price * (cart[p.id] || 0)), 0);
     let delivery = DELIVERY_CHARGES[document.getElementById("delivery").value];
     document.getElementById("totalAmount").innerText = `Rs ${subtotal + delivery}`;
+    return { subtotal, total: subtotal + delivery };
   }
 
   document.getElementById("delivery").addEventListener("change", calculateTotal);
 
-  window.openCart = () => { document.getElementById("popup").style.display = "flex"; calculateTotal(); };
+  window.openCart = () => { 
+    calculateTotal();
+    document.getElementById("popup").style.display = "flex"; 
+  };
+  
   window.closeCart = () => { document.getElementById("popup").style.display = "none"; };
 
-  window.sendOrder = () => {
+  window.sendOrder = (method) => {
     const name = document.getElementById("name").value;
     const phone = document.getElementById("phone").value;
-    if(!name || !phone) return alert("براہ کرم نام اور نمبر لکھیں");
-
-    let items = PRODUCTS.filter(p => cart[p.id] > 0).map(p => `• ${p.title} x ${cart[p.id]}`).join('\n');
-    if(!items) return alert("کارٹ خالی ہے");
-
-    let total = document.getElementById("totalAmount").innerText;
-    let msg = `🛒 *نیا آرڈر - Bachatino*\n\n*گاہک کا نام:* ${name}\n*نمبر:* ${phone}\n\n*آئٹمز:*\n${items}\n\n*کل رقم بشمول ڈیلیوری:* ${total}\n\n📍 *ایڈریس:* ${document.getElementById("delivery").value === 'pickup' ? PICKUP_ADDRESS : 'ہوم ڈیلیوری'}`;
     
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`);
+    if(!name || !phone) return alert("Please enter your Name and Phone Number.");
+
+    let cartItems = PRODUCTS.filter(p => cart[p.id] > 0);
+    if(cartItems.length === 0) return alert("Your cart is empty.");
+
+    // Create Order Summary
+    let itemsList = cartItems.map(p => `• ${p.title} x ${cart[p.id]} (Rs ${p.price * cart[p.id]})`).join('\n');
+    let calc = calculateTotal();
+    let deliveryType = document.getElementById("delivery").options[document.getElementById("delivery").selectedIndex].text;
+    
+    let message = `🛒 *New Order - Bachatino*\n\n` +
+                  `👤 *Customer:* ${name}\n` +
+                  `📞 *Phone:* ${phone}\n\n` +
+                  `📦 *Order Details:*\n${itemsList}\n\n` +
+                  `🚚 *Delivery:* ${deliveryType}\n` +
+                  `💰 *Total Bill:* Rs ${calc.total}`;
+
+    // Handle Sending
+    if(method === 'whatsapp') {
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, '_blank');
+    } 
+    else if(method === 'email') {
+      let subject = `New Order from ${name} - Bachatino`;
+      // Convert newlines to %0D%0A for email body
+      let body = message.replace(/\n/g, "%0D%0A"); 
+      window.location.href = `mailto:${MERCHANT_EMAIL}?subject=${encodeURIComponent(subject)}&body=${body}`;
+    }
   };
 
+  // Initialize
   displayProducts();
+
 </script>
 
 </body>
