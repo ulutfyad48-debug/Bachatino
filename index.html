@@ -566,18 +566,269 @@
 <script>
   (function() {
     // ----- PRODUCT DATA (with categories & out‑of‑stock flag) -----
-    const PRODUCTS = [
-      { id: 1, title: "Apple Juice", category: "beverages", catLabel: "🥤 Beverages", description: "Original pure apple juice box (1L)", price: 250, image: "https://via.placeholder.com/400/e0f2e0/1e4d3a?text=🍎+Juice", inStock: true },
-      { id: 2, title: "Basmati Rice", category: "grains", catLabel: "🌾 Grains", description: "Premium long grain rice (1kg)", price: 350, image: "https://via.placeholder.com/400/f0e6cf/2d543b?text=🍚+Rice", inStock: true },
-      { id: 3, title: "Cooking Oil", category: "oil", catLabel: "🧴 Oil", description: "High quality cooking oil (1L pouch)", price: 500, image: "https://via.placeholder.com/400/fae0cb/2d573f?text=🫒+Oil", inStock: false },
-      { id: 4, title: "Washing Powder", category: "household", catLabel: "🧺 Household", description: "Best stain removal (500g)", price: 150, image: "https://via.placeholder.com/400/d9edf0/1f5345?text=🧼+Detergent", inStock: true },
-      { id: 5, title: "Green Tea", category: "tea", catLabel: "🍵 Tea", description: "Loose leaf green tea (200g)", price: 120, image: "https://via.placeholder.com/400/d1ecd2/1e5640?text=🍃+Tea", inStock: true },
-      { id: 6, title: "Mixed Nuts", category: "snacks", catLabel: "🥜 Snacks", description: "Almonds, walnuts, cashews (250g)", price: 850, image: "https://via.placeholder.com/400/fae6c2/37553d?text=🥨+Nuts", inStock: true },
-      { id: 7, title: "Orange Juice", category: "beverages", catLabel: "🥤 Beverages", description: "Fresh squeezed (1L)", price: 280, image: "https://via.placeholder.com/400/ffdeb3/3a5232?text=🍊+Orange", inStock: true },
-      { id: 8, title: "Whole Wheat Flour", category: "grains", catLabel: "🌾 Grains", description: "Chakki fresh (2kg)", price: 290, image: "https://via.placeholder.com/400/e8dac2/244f39?text=🌾+Flour", inStock: true }
-    ];
-
-    const DELIVERY_FEES = { pickup:0, peshawar:99, kpk:100, other:150 };
+   const PRODUCTS = [
+  {
+    id: 1,
+    title: "English Comprehensive Notes 10",
+    category: "10th-grade-english",
+    catLabel: "📘 10th Grade English",
+    description: "High-quality exam notes for 10th Grade. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=English+Notes+10",
+    inStock: true
+  },
+  {
+    id: 2,
+    title: "Biology Comprehensive Notes 10",
+    category: "10th-grade-biology",
+    catLabel: "🧬 10th Grade Biology",
+    description: "Detailed Biology guide with solved exercises. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Biology+Notes+10",
+    inStock: true
+  },
+  {
+    id: 3,
+    title: "Chemistry Islamia Notes 10",
+    category: "10th-grade-chemistry",
+    catLabel: "⚗️ 10th Grade Chemistry",
+    description: "Comprehensive Chemistry notes for new syllabus. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Chemistry+Islamia+10",
+    inStock: true
+  },
+  {
+    id: 4,
+    title: "Unique Professor Physics 9",
+    category: "9th-grade-physics",
+    catLabel: "🔬 9th Grade Physics",
+    description: "Physics guide with MCQs and model papers. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Unique+Physics+9",
+    inStock: true
+  },
+  {
+    id: 5,
+    title: "Chemistry Comprehensive Notes 9",
+    category: "9th-grade-chemistry",
+    catLabel: "⚗️ 9th Grade Chemistry",
+    description: "Complete 9th Grade Chemistry exam preparation notes. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Chemistry+Notes+9",
+    inStock: true
+  },
+  {
+    id: 6,
+    title: "Unique Professor English 9",
+    category: "9th-grade-english",
+    catLabel: "📘 9th Grade English",
+    description: "3-in-1 Grammar and Translation guide for 9th Grade. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Unique+English+9",
+    inStock: true
+  },
+  {
+    id: 7,
+    title: "Pakistan Studies (Millat Guide)",
+    category: "degree-pak-studies",
+    catLabel: "📜 Degree Pak Studies",
+    description: "Advanced Pakistan Studies guide for Degree classes. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Millat+Guide+Pak+Studies",
+    inStock: true
+  },
+  {
+    id: 8,
+    title: "Islamiat Lazmi Notes",
+    category: "9th-10th-islamiat",
+    catLabel: "🕌 Islamiat (9th & 10th)",
+    description: "Simplified Islamic Studies notes for KPK Board. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Islamiat+Lazmi+Notes",
+    inStock: true
+  },
+  {
+    id: 9,
+    title: "Pakistan Studies (Islamia Notes)",
+    category: "9th-10th-pak-studies",
+    catLabel: "📜 Pak Studies (9th & 10th)",
+    description: "Concise Pakistan Studies notes for exam success. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Islamia+Pak+Studies",
+    inStock: true
+  },
+  {
+    id: 10,
+    title: "Model Guide 8 (Multi-Subject)",
+    category: "8th-grade-general",
+    catLabel: "📚 8th Grade General",
+    description: "All-in-one guide for 8th Grade subjects. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Model+Guide+8",
+    inStock: true
+  },
+  {
+    id: 11,
+    title: "Physics (Comprehensive Notes) 9th",
+    category: "9th-grade-physics",
+    catLabel: "🔬 9th Grade Physics",
+    description: "Comprehensive Physics notes for 9th grade by Nayab/Prof. Abdur Rahim. Features solved examples & assignments. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Physics+Comprehensive+9",
+    inStock: true
+  },
+  {
+    id: 12,
+    title: "Physics (Unique Professor) 10th",
+    category: "10th-grade-physics",
+    catLabel: "🔬 10th Grade Physics",
+    description: "Physics guide for 10th grade by Unique Publishers. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Unique+Physics+10",
+    inStock: true
+  },
+  {
+    id: 13,
+    title: "Physics (Comprehensive Notes) 10th",
+    category: "10th-grade-physics",
+    catLabel: "🔬 10th Grade Physics",
+    description: "Comprehensive Physics notes for 10th grade by Nayab/Prof. Abdur Rahim. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Physics+Comprehensive+10",
+    inStock: true
+  },
+  {
+    id: 14,
+    title: "Physics (New Course 2019) 10th",
+    category: "10th-grade-physics",
+    catLabel: "🔬 10th Grade Physics",
+    description: "Physics New Course 2019 for 10th grade by Islamia/Malik Ahmad. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Physics+New+Course+2019",
+    inStock: true
+  },
+  {
+    id: 15,
+    title: "Chemistry (Notes - SLO Based) 10th",
+    category: "10th-grade-chemistry",
+    catLabel: "⚗️ 10th Grade Chemistry",
+    description: "Chemistry Notes SLO Based for 10th grade by Talent/Haseeb Ahsan Khan. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Chemistry+SLO+10",
+    inStock: true
+  },
+  {
+    id: 16,
+    title: "Chemistry (New Edition) 10th",
+    category: "10th-grade-chemistry",
+    catLabel: "⚗️ 10th Grade Chemistry",
+    description: "Chemistry New Edition for 10th grade by Local Board/General. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Chemistry+New+Ed+10",
+    inStock: true
+  },
+  {
+    id: 17,
+    title: "Biology (Notes) 9th",
+    category: "9th-grade-biology",
+    catLabel: "🧬 9th Grade Biology",
+    description: "Biology Notes for 9th grade by Shams Books Publisher. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Biology+Notes+9",
+    inStock: true
+  },
+  {
+    id: 18,
+    title: "Biology (Notes - SLO Based) 10th",
+    category: "10th-grade-biology",
+    catLabel: "🧬 10th Grade Biology",
+    description: "Biology Notes SLO Based for 10th grade by Nothing But Talent. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Biology+SLO+10",
+    inStock: true
+  },
+  {
+    id: 19,
+    title: "English (Comprehensive Notes) 9th",
+    category: "9th-grade-english",
+    catLabel: "📘 9th Grade English",
+    description: "English Comprehensive Notes for 9th grade by Nayab/Qazi Ihsan Ullah. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=English+Comprehensive+9",
+    inStock: true
+  },
+  {
+    id: 20,
+    title: "New InterCom 3 (English)",
+    category: "general-english",
+    catLabel: "📘 General English",
+    description: "New InterCom 3 English for General level by Language Programme. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=New+InterCom+3",
+    inStock: true
+  },
+  {
+    id: 21,
+    title: "Physics (New Course) 9th",
+    category: "9th-grade-physics",
+    catLabel: "🔬 9th Grade Physics",
+    description: "Physics New Course for 9th grade by Talent Publishers Peshawar. Authors: Atta Ur Rahman & Faiz Ul Qamar. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Physics+New+Course+9",
+    inStock: true
+  },
+  {
+    id: 22,
+    title: "Chemistry (Comprehensive Notes) 9th",
+    category: "9th-grade-chemistry",
+    catLabel: "⚗️ 9th Grade Chemistry",
+    description: "Chemistry Comprehensive Notes for 9th grade by Nayab/Syed Naseeb Zada. Exam-focused Theory & Notes. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Chemistry+Comprehensive+9",
+    inStock: true
+  },
+  {
+    id: 23,
+    title: "Biology (Comprehensive Notes) 9th",
+    category: "9th-grade-biology",
+    catLabel: "🧬 9th Grade Biology",
+    description: "Biology Comprehensive Notes for 9th grade by Nayab/Manaris Khan. Long/Short Questions & Board Papers. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Biology+Comprehensive+9",
+    inStock: true
+  },
+  {
+    id: 24,
+    title: "English Grammar (Composition) 8th",
+    category: "8th-grade-english",
+    catLabel: "📘 8th Grade English",
+    description: "English Grammar Composition for 8th grade by Shauq Publications. New Scheme of Studies. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=English+Grammar+8",
+    inStock: true
+  },
+  {
+    id: 25,
+    title: "Logarithmic Tables",
+    category: "reference",
+    catLabel: "📊 Logarithmic Tables",
+    description: "Logarithmic Tables for Schools by MTP. Essential for Math & Physics. Previously used but in excellent condition. Only 1 copy available.",
+    price: 20,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Log+Tables",
+    inStock: true
+  },
+  {
+    id: 26,
+    title: "Physics (Additional Notes) 9th",
+    category: "9th-grade-physics",
+    catLabel: "🔬 9th Grade Physics",
+    description: "Physics Additional Notes for 9th grade by Gravity Series/Nayab. Concept based notes. Previously used but in excellent condition. Only 1 copy available.",
+    price: 100,
+    image: "https://via.placeholder.com/400/2c3e50/ffffff?text=Physics+Additional+9",
+    inStock: true
+  }
+];
+ const DELIVERY_FEES = { pickup:0, peshawar:99, kpk:100, other:150 };
     const WHATSAPP_NUMBER = "923125540048"; 
     const MERCHANT_EMAIL = "ullahyad199@gmail.com";
 
